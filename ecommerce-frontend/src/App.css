@@ -1,0 +1,67 @@
+/* Import font din Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Stiluri globale pentru pagin? */
+body {
+  font-family: 'Poppins', sans-serif; /* Fontul Poppins pentru întreaga pagin? */
+  background-color: #f5f7fa; /* Fundal deschis */
+  margin: 0;
+  padding: 0;
+  line-height: 1.5; /* Linia mai mare pentru text */
+  color: #333; /* Text mai închis pentru contrast */
+}
+
+/* Stiluri pentru fiecare sec?iune */
+section {
+  background-color: #1e3a5f; /* Albastru mai închis */
+  color: white; /* Text alb pentru contrast */
+  padding: 30px 40px; /* Padding mai mare pentru mai mult spa?iu */
+  margin: 30px auto; /* Margin? uniform? între sec?iuni */
+  border-radius: 12px; /* Col?uri rotunjite mai mari */
+  width: 75%; /* Dimensiunea sec?iunilor */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Efect de umbr? mai pronun?at */
+  text-align: center; /* Centrarea textului */
+  transition: box-shadow 0.3s ease-in-out; /* Tranzi?ie pentru umbra */
+}
+
+section:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Efect de umbr? la hover */
+}
+
+/* Ajustare pentru titlurile din sec?iuni */
+section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem; /* Font mai mare pentru titluri */
+  font-weight: 600;
+}
+
+/* Ajustare pentru textul din sec?iuni */
+section p {
+  font-size: 1.4rem; /* M?rire font text */
+  line-height: 1.8; /* Cre?tere spa?iu între linii */
+  margin-bottom: 20px; /* Margine mai mare sub paragrafe */
+}
+
+/* Stil pentru butoane (dac? exist?) */
+section button {
+  background-color: #26486b;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px; /* Col?uri rotunjite pentru butoane */
+  cursor: pointer;
+  font-size: 1.1rem; /* Font mai mare pentru buton */
+  transition: background-color 0.3s ease; /* Tranzi?ie la hover */
+}
+
+section button:hover {
+  background-color: #19344d;
+}
+
+/* Stiluri pentru prima pagin? (op?ional) */
+.first-page {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem; /* Font mai mare pentru textul principal */
+  line-height: 1.8;
+}

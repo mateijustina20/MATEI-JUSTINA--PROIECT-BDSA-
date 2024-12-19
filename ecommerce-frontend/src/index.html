@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stripe Payment</title>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <button id="pay-button">Plătește acum</button>
+
+  <script>
+    const stripe = Stripe('pk_test_yourPublishableKey'); // Înlocuiește cu cheia ta publică Stripe
+
+    document.getElementById('pay-button').addEventListener('click', async () => {
+      // Solicită crearea unui Payment Intent de la server
+      const response = await fetch('/create-payment-intent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + yourJWTToken, // Token JWT pentru autentificare
+        },
+        body: JSON.stringify({ amount: 1000 }), // Suma în centi (ex: 1000 = 10 USD)
+      });
+
+      const paymentIntentResponse = await response.json();
+      const clientSecret = paymentIntentResponse.clientSecret;
+
+      // Confirmă plata
+      const {error} = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: {
+            number: '4242 4242 4242 4242', // Card de test Stripe
+            exp_month: '12',
+            exp_year: '24',
+            cvc: '123',
+          },
+        },
+      });
+
+      if (error) {
+        alert('Eroare: ' + error.message);
+      } else {
+        alert('Plata a fost efectuată cu succes!');
+      }
+    });
+  </script>
+</body>
+</html>
